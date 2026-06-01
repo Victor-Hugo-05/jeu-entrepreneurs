@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jeu Entrepreneurs</title>
+    <link rel="preconnect" href="https://images.weserv.nl" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-panel" aria-labelledby="game-title">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">Associer fondateur et entreprise</p>
+            <h1 id="game-title">Jeu Entrepreneurs</h1>
+          </div>
+          <div class="scoreboard" aria-live="polite">
+            <span id="score">0</span>
+            <small>/ 7</small>
+          </div>
+        </header>
+
+        <div class="status-row">
+          <p id="status">Choisis un entrepreneur, puis la logo de son entreprise.</p>
+          <button id="reset" type="button">Recommencer</button>
+        </div>
+
+        <div class="board" aria-label="Plateau de jeu">
+          <section>
+            <h2>Entrepreneurs</h2>
+            <div id="entrepreneurs" class="card-grid"></div>
+          </section>
+          <section>
+            <h2>Entreprises</h2>
+            <div id="companies" class="card-grid"></div>
+          </section>
+        </div>
+      </section>
+
+      <aside class="insight-panel" aria-live="polite">
+        <p class="eyebrow">Profil</p>
+        <h2 id="profile-title">Fais une association</h2>
+        <p id="profile-copy">
+          Quand tu trouves la bonne paire, le style entrepreneurial apparaît ici.
+        </p>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
