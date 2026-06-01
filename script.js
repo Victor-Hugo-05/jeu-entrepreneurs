@@ -89,8 +89,8 @@ const entrepreneurs = [
     company: "PlayStation",
     companyMeta: "Console de jeux",
     role: "",
-    portrait: "",
-    logo: "",
+    portrait: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Ken_kutaragi.jpg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/330px-Playstation_logo_colour.svg.png",
     description:
       "Ken Kutaragi est surtout connu comme le créateur de la PlayStation. Son style d'innovation repose sur une forte intuition technologique et sur la volonté de transformer le jeu vidéo en une expérience plus puissante, plus immersive et plus accessible au grand public. Il a su défendre une idée ambitieuse à l'intérieur d'une grande entreprise et faire d'une console un produit culturel mondial.",
   },
@@ -100,8 +100,8 @@ const entrepreneurs = [
     company: "Gmail",
     companyMeta: "Messagerie électronique",
     role: "",
-    portrait: "",
-    logo: "",
+    portrait: "https://cdn.sanity.io/images/ys06qi2c/production/6ab286419f7a33cf9d1cafd993706bf8b5fb5c33-500x500.png?w=400&h=400&fit=crop",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1280px-Gmail_icon_%282020%29.svg.png",
     description:
       "Paul Buchheit est l'inventeur de Gmail, un service qui a changé les habitudes de messagerie grâce à un grand espace de stockage, une recherche rapide et une interface simple. Son style d'innovation est très orienté produit : il cherche à résoudre un problème quotidien avec une solution claire, utile et scalable. Il montre qu'une bonne idée peut transformer un outil banal en service essentiel.",
   },
@@ -111,8 +111,8 @@ const entrepreneurs = [
     company: "Kevlar",
     companyMeta: "Fibre résistante",
     role: "",
-    portrait: "",
-    logo: "",
+    portrait: "https://www.timeforkids.com/wp-content/uploads/2020/08/StephanieKwolek_005_preview.jpg?w=913",
+    logo: "https://www.goodfellow.com/media/wysiwyg/kavlar-image2.png",
     description:
       "Stephanie Kwolek est la chimiste qui a inventé le Kevlar, une fibre très résistante utilisée notamment dans les gilets pare-balles, les équipements de protection et certains matériaux industriels. Son style d'invention repose sur la rigueur scientifique, la curiosité et la capacité à reconnaître le potentiel d'un résultat inattendu. Elle illustre l'importance de la recherche patiente et de l'expérimentation.",
   },
@@ -122,8 +122,8 @@ const entrepreneurs = [
     company: "SR-71 Blackbird",
     companyMeta: "Avion de reconnaissance",
     role: "",
-    portrait: "",
-    logo: "",
+    portrait: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShGWZ3ln6KHmR7IjKCYbHDLMfZtljoBenStg&s",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Lockheed_SR-71_Blackbird_%28modified%29.jpg/960px-Lockheed_SR-71_Blackbird_%28modified%29.jpg",
     description:
       "Kelly Johnson était un ingénieur aéronautique célèbre pour son travail chez Lockheed Skunk Works, notamment sur le SR-71 Blackbird. Son style d'innovation était rapide, pragmatique et extrêmement exigeant. Il privilégiait de petites équipes, des décisions claires et une grande autonomie technique. Il montre comment l'ingénierie peut repousser les limites de la vitesse, de l'altitude et de la performance.",
   },
