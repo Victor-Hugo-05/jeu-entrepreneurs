@@ -83,6 +83,50 @@ const entrepreneurs = [
     description:
       "Whitney Wolfe Herd est une entrepreneure moderne, orientée communauté et attentive aux usages sociaux. Elle a construit Bumble autour d'une idée claire : donner plus de contrôle et de sécurité aux utilisatrices. Son style entrepreneurial combine positionnement de marque, sens du produit et volonté de changer des comportements existants. Elle montre comment une mission sociale peut devenir un avantage compétitif.",
   },
+  {
+    id: "kutaragi",
+    name: "Ken Kutaragi",
+    company: "PlayStation",
+    companyMeta: "Console de jeux",
+    role: "",
+    portrait: "",
+    logo: "",
+    description:
+      "Ken Kutaragi est surtout connu comme le créateur de la PlayStation. Son style d'innovation repose sur une forte intuition technologique et sur la volonté de transformer le jeu vidéo en une expérience plus puissante, plus immersive et plus accessible au grand public. Il a su défendre une idée ambitieuse à l'intérieur d'une grande entreprise et faire d'une console un produit culturel mondial.",
+  },
+  {
+    id: "buchheit",
+    name: "Paul Buchheit",
+    company: "Gmail",
+    companyMeta: "Messagerie électronique",
+    role: "",
+    portrait: "",
+    logo: "",
+    description:
+      "Paul Buchheit est l'inventeur de Gmail, un service qui a changé les habitudes de messagerie grâce à un grand espace de stockage, une recherche rapide et une interface simple. Son style d'innovation est très orienté produit : il cherche à résoudre un problème quotidien avec une solution claire, utile et scalable. Il montre qu'une bonne idée peut transformer un outil banal en service essentiel.",
+  },
+  {
+    id: "kwolek",
+    name: "Stephanie Kwolek",
+    company: "Kevlar",
+    companyMeta: "Fibre résistante",
+    role: "",
+    portrait: "",
+    logo: "",
+    description:
+      "Stephanie Kwolek est la chimiste qui a inventé le Kevlar, une fibre très résistante utilisée notamment dans les gilets pare-balles, les équipements de protection et certains matériaux industriels. Son style d'invention repose sur la rigueur scientifique, la curiosité et la capacité à reconnaître le potentiel d'un résultat inattendu. Elle illustre l'importance de la recherche patiente et de l'expérimentation.",
+  },
+  {
+    id: "johnson",
+    name: "Kelly Johnson",
+    company: "SR-71 Blackbird",
+    companyMeta: "Avion de reconnaissance",
+    role: "",
+    portrait: "",
+    logo: "",
+    description:
+      "Kelly Johnson était un ingénieur aéronautique célèbre pour son travail chez Lockheed Skunk Works, notamment sur le SR-71 Blackbird. Son style d'innovation était rapide, pragmatique et extrêmement exigeant. Il privilégiait de petites équipes, des décisions claires et une grande autonomie technique. Il montre comment l'ingénierie peut repousser les limites de la vitesse, de l'altitude et de la performance.",
+  },
 ];
 
 const state = {
@@ -95,6 +139,7 @@ const entrepreneursEl = document.querySelector("#entrepreneurs");
 const companiesEl = document.querySelector("#companies");
 const statusEl = document.querySelector("#status");
 const scoreEl = document.querySelector("#score");
+const totalEl = document.querySelector("#total");
 const profileTitleEl = document.querySelector("#profile-title");
 const profileCopyEl = document.querySelector("#profile-copy");
 const resetEl = document.querySelector("#reset");
@@ -113,12 +158,8 @@ function createCard(item, type) {
   const visual = document.createElement("span");
   visual.className = type === "entrepreneur" ? "portrait" : "logo";
 
-  const img = document.createElement("img");
-  img.src = type === "entrepreneur" ? item.portrait : item.logo;
-  img.alt = type === "entrepreneur" ? `Portrait de ${item.name}` : `Logo ${item.company}`;
-  img.loading = "lazy";
-  img.addEventListener("error", () => {
-    img.remove();
+  const imageSrc = type === "entrepreneur" ? item.portrait : item.logo;
+  const showFallback = () => {
     visual.textContent =
       type === "entrepreneur"
         ? item.name
@@ -127,8 +168,21 @@ function createCard(item, type) {
             .join("")
         : item.company;
     visual.classList.add("image-fallback");
-  });
-  visual.append(img);
+  };
+
+  if (imageSrc) {
+    const img = document.createElement("img");
+    img.src = imageSrc;
+    img.alt = type === "entrepreneur" ? `Portrait de ${item.name}` : `Image ${item.company}`;
+    img.loading = "lazy";
+    img.addEventListener("error", () => {
+      img.remove();
+      showFallback();
+    });
+    visual.append(img);
+  } else {
+    showFallback();
+  }
 
   const text = document.createElement("span");
   const name = document.createElement("span");
@@ -137,7 +191,7 @@ function createCard(item, type) {
 
   const meta = document.createElement("span");
   meta.className = "card-meta";
-  meta.textContent = type === "entrepreneur" ? item.role : "Logo de l'entreprise";
+  meta.textContent = type === "entrepreneur" ? item.role : item.companyMeta || "Logo de l'entreprise";
 
   text.append(name);
   if (meta.textContent) {
@@ -211,6 +265,7 @@ function checkMatch() {
 
 function updateScore() {
   scoreEl.textContent = state.matched.size;
+  totalEl.textContent = entrepreneurs.length;
 }
 
 function resetGame() {
@@ -226,4 +281,5 @@ function resetGame() {
 }
 
 resetEl.addEventListener("click", resetGame);
+updateScore();
 renderBoard();

@@ -19,3 +19,7 @@ Dans les paramètres du dépôt GitHub, active GitHub Pages avec la branche `mai
 - Oprah Winfrey - OWN
 - Richard Branson - Virgin
 - Whitney Wolfe Herd - Bumble
+- Ken Kutaragi - PlayStation
+- Paul Buchheit - Gmail
+- Stephanie Kwolek - Kevlar
+- Kelly Johnson - SR-71 Blackbird
