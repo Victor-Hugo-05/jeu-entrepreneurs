@@ -55,7 +55,7 @@ const entrepreneurs = [
     portrait:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/b/bf/Oprah_in_2014.jpg&w=180&h=180&fit=cover",
     logo:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/6/69/Oprah_Winfrey_Network_logo.svg&w=220&h=160&fit=contain&we",
+      "https://static.oprah.com/2022/05/OWN_Meta_Logo.png",
     description:
       "Oprah Winfrey est une entrepreneure relationnelle, inspirante et très attentive à la confiance de son public. Elle a construit une marque personnelle forte autour de l'écoute, de l'authenticité et de l'impact culturel. Son style de leadership valorise l'émotion, la narration et la capacité à donner de la visibilité à d'autres voix. Elle montre qu'une entreprise peut aussi se développer grâce à une communauté fidèle.",
   },
@@ -67,7 +67,7 @@ const entrepreneurs = [
     portrait:
       "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1052306510.jpg?crop=1xw:1.0xh;center,top&resize=640:*",
     logo:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/f/ff/Virgin_logo.svg&w=220&h=160&fit=contain&we",
+      "https://upload.wikimedia.org/wikipedia/fr/5/5b/Virgin_group_logo.svg",
     description:
       "Richard Branson est un entrepreneur audacieux, communicant et très attaché à l'image de marque. Il aime entrer dans des secteurs variés avec une approche plus simple, plus humaine ou plus amusante que les acteurs traditionnels. Son style repose sur la prise de risque, la délégation et la capacité à raconter une aventure entrepreneuriale. Il incarne l'idée qu'une marque peut devenir un univers.",
   },
@@ -79,7 +79,7 @@ const entrepreneurs = [
     portrait:
       "https://mastersofscale.com/wp-content/uploads/2022/09/MoS_WhitneyWolfeHerd_colorcutout-800x627.webp",
     logo:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/2/2f/Bumble_Logo_2020.svg&w=220&h=160&fit=contain&we",
+      "https://cdn.worldvectorlogo.com/logos/bumble-1-1.svg",
     description:
       "Whitney Wolfe Herd est une entrepreneure moderne, orientée communauté et attentive aux usages sociaux. Elle a construit Bumble autour d'une idée claire : donner plus de contrôle et de sécurité aux utilisatrices. Son style entrepreneurial combine positionnement de marque, sens du produit et volonté de changer des comportements existants. Elle montre comment une mission sociale peut devenir un avantage compétitif.",
   },
