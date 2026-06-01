@@ -3,9 +3,9 @@ const entrepreneurs = [
     id: "musk",
     name: "Elon Musk",
     company: "Tesla",
-    role: "Tesla, SpaceX",
+    role: "",
     portrait:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society_%28crop2%29.jpg&w=180&h=180&fit=cover",
+      "https://cdn8.futura-sciences.com/s480/Elon%20Musk1.jpg",
     logo:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png&w=180&h=180&fit=contain&we",
     description:
@@ -15,9 +15,9 @@ const entrepreneurs = [
     id: "jobs",
     name: "Steve Jobs",
     company: "Apple",
-    role: "Apple, Pixar",
+    role: "",
     portrait:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/f/f5/Steve_Jobs_Headshot_2010-CROP.jpg&w=180&h=180&fit=cover",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhkr1C2ZtxFbC7PJRx407iGZ_RnU0Q-mTk5Q&s",
     logo:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg&w=180&h=180&fit=contain&we",
     description:
@@ -27,9 +27,9 @@ const entrepreneurs = [
     id: "bezos",
     name: "Jeff Bezos",
     company: "Amazon",
-    role: "Amazon, Blue Origin",
+    role: "",
     portrait:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/1/1b/Jeff_Bezos%27_iconic_laugh.jpg&w=180&h=180&fit=cover",
+      "https://imageio.forbes.com/specials-images/imageserve/67531eb2b5f7c9e191f632d7/0x0.jpg?format=jpg&crop=711,713,x316,y125,safe&height=416&width=416&fit=bounds",
     logo:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg&w=220&h=160&fit=contain&we",
     description:
@@ -39,9 +39,9 @@ const entrepreneurs = [
     id: "zuckerberg",
     name: "Mark Zuckerberg",
     company: "Meta",
-    role: "Facebook, Meta",
+    role: "",
     portrait:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/0/01/Mark_Zuckerberg_at_the_37th_G8_Summit_in_Deauville_018_v1.jpg&w=180&h=180&fit=cover",
+      "https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg",
     logo:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png&w=220&h=160&fit=contain&we",
     description:
@@ -51,7 +51,7 @@ const entrepreneurs = [
     id: "winfrey",
     name: "Oprah Winfrey",
     company: "OWN",
-    role: "Harpo, OWN",
+    role: "",
     portrait:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/b/bf/Oprah_in_2014.jpg&w=180&h=180&fit=cover",
     logo:
@@ -63,9 +63,9 @@ const entrepreneurs = [
     id: "branson",
     name: "Richard Branson",
     company: "Virgin",
-    role: "Virgin Group",
+    role: "",
     portrait:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/7/74/Richard_Branson_2015.jpg&w=180&h=180&fit=cover",
+      "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1052306510.jpg?crop=1xw:1.0xh;center,top&resize=640:*",
     logo:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/f/ff/Virgin_logo.svg&w=220&h=160&fit=contain&we",
     description:
@@ -75,9 +75,9 @@ const entrepreneurs = [
     id: "whitney",
     name: "Whitney Wolfe Herd",
     company: "Bumble",
-    role: "Bumble",
+    role: "",
     portrait:
-      "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/a/a1/Whitney_Wolfe_Herd_in_2021.png&w=180&h=180&fit=cover",
+      "https://mastersofscale.com/wp-content/uploads/2022/09/MoS_WhitneyWolfeHerd_colorcutout-800x627.webp",
     logo:
       "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/2/2f/Bumble_Logo_2020.svg&w=220&h=160&fit=contain&we",
     description:
