@@ -139,7 +139,10 @@ function createCard(item, type) {
   meta.className = "card-meta";
   meta.textContent = type === "entrepreneur" ? item.role : "Logo de l'entreprise";
 
-  text.append(name, meta);
+  text.append(name);
+  if (meta.textContent) {
+    text.append(meta);
+  }
   button.append(visual, text);
   button.addEventListener("click", () => selectCard(button, item, type));
 
