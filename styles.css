@@ -64,6 +64,30 @@ button {
   gap: 16px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secondary-link {
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--accent-strong);
+  background: #fff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.secondary-link:hover,
+.secondary-link:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
 .eyebrow {
   margin: 0 0 7px;
   color: var(--accent-strong);
@@ -295,6 +319,15 @@ h2 {
   .board {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .header-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .secondary-link {
+    text-align: center;
   }
 
   .scoreboard {

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bilan de Compétences Flash | Profil Entrepreneur</title>
+    <!-- Import d'une police Google très "Tech/Startup" -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS : Design "Startup Dark Mode", optimisé pour mobile */
+        :root {
+            --bg-color: #0F172A; /* Slate 900 */
+            --card-bg: #1E293B; /* Slate 800 */
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent-gradient: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+            --accent-hover: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%);
+            --btn-bg: #2D3748;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent; /* Enlève le flash bleu sur mobile */
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh; /* Adapté aux navigateurs mobiles modernes */
+            padding: 1rem;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 500px; /* Format "App mobile" même sur PC */
+            padding: 2rem 1.5rem;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .question-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            color: var(--text-main);
+            -webkit-text-fill-color: var(--text-main);
+            background: none;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Barre de progression */
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-gradient);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Boutons de réponse - Optimisés Mobile (Grandes zones de clic) */
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 1.25rem 1rem;
+            margin: 0.75rem 0;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .option-btn:hover, .option-btn:active {
+            border-color: #6366F1;
+            background-color: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Bouton d'action (Commencer / Recommencer) */
+        .action-btn {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 1.25rem 2rem;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+        }
+
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Section Résultats */
+        .emoji-header {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-title {
+            color: var(--text-main);
+            font-size: 1.6rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column; /* Toujours en colonne sur mobile */
+            gap: 1rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .skills-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.25rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skills-box h3 {
+            font-size: 1.1rem;
+            color: #A855F7;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-box.develop h3 {
+            color: #10B981; /* Vert émeraude pour les axes d'amélioration */
+        }
+
+        .skills-box ul {
+            padding-left: 1.5rem;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .skills-box li {
+            margin-bottom: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Écran d'accueil -->
+        <div id="intro-screen">
+            <div class="emoji-header">🚀</div>
+            <h1>Bilan Entrepreneur</h1>
+            <p class="subtitle">5 mises en situation rapides pour découvrir ton ADN entrepreneurial et tes compétences clés.</p>
+            <button class="action-btn" onclick="startQuiz()">Démarrer le diagnostic</button>
+        </div>
+
+        <!-- Écran de Quiz -->
+        <div id="quiz-screen" class="hidden">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p class="subtitle" style="margin-bottom: 0.5rem; font-size: 0.9rem;">Question <span id="current-question-num">1</span> / 5</p>
+            <h2 id="question-text" class="question-title">Question</h2>
+            <div id="options-container">
+                <!-- Les boutons injectés via JS -->
+            </div>
+        </div>
+
+        <!-- Écran de Résultat -->
+        <div id="result-screen" class="hidden">
+            <div id="result-emoji" class="emoji-header">🎯</div>
+            <h1 style="font-size: 1.2rem; margin-bottom: 0;">Ton Profil :</h1>
+            <h2 id="result-title" class="result-title">Le Profil</h2>
+            <p id="result-description" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Description du profil...</p>
+            
+            <div class="skills-container">
+                <div class="skills-box">
+                    <h3>⚡ Acquis Forts</h3>
+                    <ul id="skills-acquired"></ul>
+                </div>
+                <div class="skills-box develop">
+                    <h3>🌱 À Développer</h3>
+                    <ul id="skills-to-develop"></ul>
+                </div>
+            </div>
+            
+            <button class="action-btn" style="margin-top: 2rem;" onclick="location.reload()">Refaire le test</button>
+        </div>
+    </div>
+
+    <script>
+        // --- DONNÉES DU QUIZ (5 Questions) ---
+        const questions = [
+            {
+                text: "Un bug critique frappe ton prototype à 24h d'un pitch important. Ta réaction ?",
+                options: [
+                    { text: "Je rouvre la CAO ou le code pour corriger le tir moi-même, nuit blanche s'il le faut.", profile: "tech" },
+                    { text: "Je rassemble l'équipe pour redistribuer les rôles et gérer la crise.", profile: "manager" },
+                    { text: "J'adapte le pitch pour transformer ce bug en 'feature' ou pivot innovant.", profile: "visionary" },
+                    { text: "J'analyse méthodiquement les logs/données pour cibler l'origine exacte du problème.", profile: "analyst" }
+                ]
+            },
+            {
+                text: "Dans un projet étudiant, tu es naturellement la personne qui...",
+                options: [
+                    { text: "Démarcha les partenaires et sécurise le budget.", profile: "manager" },
+                    { text: "Propose l'idée disruptive qui démarque totalement le projet.", profile: "visionary" },
+                    { text: "Définit l'architecture et structure la méthodologie.", profile: "analyst" },
+                    { text: "Met les mains dans le cambouis pour fabriquer ou coder.", profile: "tech" }
+                ]
+            },
+            {
+                text: "Ce qui te donne le plus de satisfaction dans un succès, c'est :",
+                options: [
+                    { text: "L'originalité du concept et son impact sur le marché.", profile: "visionary" },
+                    { text: "La rigueur de la solution et l'optimisation des KPIs.", profile: "analyst" },
+                    { text: "Le produit fini : palpable, robuste et parfaitement fonctionnel.", profile: "tech" },
+                    { text: "La dynamique humaine et l'énergie collective de l'équipe.", profile: "manager" }
+                ]
+            },
+            {
+                text: "Gros désaccord stratégique dans ton équipe. Comment tranches-tu ?",
+                options: [
+                    { text: "Faisons un test rapide (A/B test ou proto) pour voir ce qui marche dans le monde réel.", profile: "tech" },
+                    { text: "Tranchons rapidement selon notre objectif business principal et avançons.", profile: "manager" },
+                    { text: "Faisons un brainstorming pour trouver une 3ème voie encore plus ambitieuse.", profile: "visionary" },
+                    { text: "Reprenons les datas et les critères objectifs pour prendre une décision rationnelle.", profile: "analyst" }
+                ]
+            },
+            {
+                text: "Si tu obtenais un financement illimité demain matin, ta priorité serait :",
+                options: [
+                    { text: "Acheter du matériel de pointe et développer la V2 technologique du produit.", profile: "tech" },
+                    { text: "Recruter les meilleurs profils et lancer une campagne marketing agressive.", profile: "manager" },
+                    { text: "Explorer de nouveaux marchés et imaginer des produits annexes disruptifs.", profile: "visionary" },
+                    { text: "Financer une étude de marché massive pour optimiser nos algorithmes internes.", profile: "analyst" }
+                ]
+            }
+        ];
+
+        const profiles = {
+            "tech": {
+                emoji: "🛠️",
+                title: "L'Architecte Technique",
+                description: "Pragmatique et orienté solution. Tu aimes quand c'est concret, mesurable et que ça fonctionne. Tu es le moteur de réalisation du projet.",
+                acquired: ["Modélisation & Conception", "Maîtrise des outils de dev/prod", "Résolution de problèmes concrets"],
+                toDevelop: ["Prise de parole en public", "Délégation des tâches", "Vision globale (Business & Marché)"]
+            },
+            "manager": {
+                emoji: "🤝",
+                title: "Le Leader Fédérateur",
+                description: "Tu as une vision d'ensemble et sais coordonner les talents. Budgets, plannings, B2B : tu structures l'environnement pour que l'équipe performe.",
+                acquired: ["Management & Leadership", "Gestion budgétaire & Prospection", "Prise de décision sous pression"],
+                toDevelop: ["Garder une expertise technique", "Acceptation du risque pur", "Lâcher prise sur le contrôle"]
+            },
+            "visionary": {
+                emoji: "💡",
+                title: "Le Concepteur Disruptif",
+                description: "Là où les autres voient des contraintes, tu vois des opportunités. Ton point fort est le pitch, l'idéation et ta capacité à pivoter.",
+                acquired: ["Créativité & Idéation", "Force de persuasion (Pitch)", "Adaptabilité exceptionnelle"],
+                toDevelop: ["Rigueur analytique", "Structuration des process", "Finition et exécution (aller au bout)"]
+            },
+            "analyst": {
+                emoji: "📊",
+                title: "L'Analyste Stratégique",
+                description: "La data avant tout. Tu ne laisses rien au hasard, tes choix sont backés par des calculs, des tests et une méthodologie infaillible.",
+                acquired: ["Analyse quantitative", "Rigueur scientifique", "Optimisation sous contraintes"],
+                toDevelop: ["Gestion de l'incertitude", "Soft skills (Intelligence émotionnelle)", "Vulgarisation de concepts complexes"]
+            }
+        };
+
+        let currentQuestionIndex = 0;
+        let scores = { tech: 0, manager: 0, visionary: 0, analyst: 0 };
+
+        const introScreen = document.getElementById('intro-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const currentQuestionNum = document.getElementById('current-question-num');
+        const progressFill = document.getElementById('progress-fill');
+
+        function startQuiz() {
+            introScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const currentQ = questions[currentQuestionIndex];
+            questionText.innerText = currentQ.text;
+            currentQuestionNum.innerText = currentQuestionIndex + 1;
+            
+            // Mise à jour de la barre de progression
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressFill.style.width = `${progress}%`;
+
+            optionsContainer.innerHTML = '';
+
+            // Mélanger les options pour éviter les biais cognitifs liés à l'ordre
+            const shuffledOptions = [...currentQ.options].sort(() => Math.random() - 0.5);
+
+            shuffledOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.classList.add('option-btn');
+                button.innerText = option.text;
+                button.onclick = () => handleAnswer(option.profile);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function handleAnswer(profile) {
+            scores[profile]++;
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+
+            // Déterminer le profil dominant (en cas d'égalité, le premier trouvé gagne)
+            let dominantProfile = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const result = profiles[dominantProfile];
+
+            // Injecter les données
+            document.getElementById('result-emoji').innerText = result.emoji;
+            document.getElementById('result-title').innerText = result.title;
+            document.getElementById('result-description').innerText = result.description;
+            
+            document.getElementById('skills-acquired').innerHTML = result.acquired.map(skill => `<li>${skill}</li>`).join('');
+            document.getElementById('skills-to-develop').innerHTML = result.toDevelop.map(skill => `<li>${skill}</li>`).join('');
+        }
+    </script>
+</body>
+</html>
